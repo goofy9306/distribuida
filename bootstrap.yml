@@ -1,0 +1,25 @@
+spring:
+  application:
+     name: repaso-zuulG  # Nombre del servicio Zuul
+     
+
+zuul:
+  #ignoredServices: '*'
+  routes:
+    holamundo:
+      path: /hola/**
+      serviceId: REPASO-CLIENTE2
+      stripPrefix: false
+    test:
+      path: /test/**
+      serviceId: REPASO-CLIENTE
+      stripPrefix: false
+
+eureka:
+  client:
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+server:
+  port: 8200  
